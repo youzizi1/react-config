@@ -4,7 +4,7 @@ import ReactDom from 'react-dom'
 import App from './app'
 
 ReactDom.render(
-  <div>hello world
+  <div>hello world ugu
     <App />
   </div>,
   document.getElementById('app')
