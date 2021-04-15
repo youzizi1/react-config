@@ -1,12 +1,13 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: "development",
   entry: path.join(__dirname, "src/index.js"),
   output: {
     path: path.join(__dirname, "dist/"),
-    filename: "bundle.js",
-    chunkFilename: '[name].js'
+    filename: "[name].[hash].js",
+    chunkFilename: "[name].[chunkhash].js",
   },
   devtool: "inline-source-map",
   resolve: {
@@ -22,7 +23,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.js$/,
@@ -34,12 +35,18 @@ module.exports = {
       {
         test: /\.jpg|png|jpeg|gif$/,
         use: {
-          loader: 'url-loader',
+          loader: "url-loader",
           options: {
-            limit: 8192
-          }
-        }
-      }
+            limit: 8192,
+          },
+        },
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.join(__dirname, './public/index.html')
+    })
+  ]
 };
