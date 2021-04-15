@@ -1,16 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { double } from "@/utils";
 
 class App extends Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      count: 2
-    }
+      count: 2,
+    };
   }
-  render() { 
-    return ( <div>{this.state.count}
-      <input type="text" />
-    </div> );
+
+  handleClick() {
+    this.setState({
+      count: double(this.state.count),
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>{this.state.count}</p>
+        <button onClick={this.handleClick.bind(this)}>double</button>
+      </div>
+    );
   }
 }
 
