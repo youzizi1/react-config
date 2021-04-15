@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 2,
+      count: 12,
     };
   }
 
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   handleAsyncLoad() {
-    import("@/utils/async-module").then((module) => {
+    import(/* webpackChunkName: "async" */"@/utils/async-module").then((module) => {
       console.log(module.default);
     });
   }
