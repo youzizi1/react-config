@@ -8,7 +8,8 @@ if (module.hot) {
 }
 
 ReactDom.render(
-  <div>hello world ugu
+  <div>
+    <p>hello world ugu</p>
     <App />
   </div>,
   document.getElementById('app')

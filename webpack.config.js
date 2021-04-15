@@ -20,12 +20,25 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
         test: /\.js$/,
         include: path.join(__dirname, "src"),
         use: {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.jpg|png|jpeg|gif$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 8192
+          }
+        }
+      }
     ],
   },
 };

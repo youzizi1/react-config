@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { double } from "@/utils";
+import '@/css/app.css'
+import avatar from '@/images/avatar.jpg'
 
 class App extends Component {
   constructor(props) {
@@ -17,9 +19,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <p>{this.state.count}</p>
         <button onClick={this.handleClick.bind(this)}>double</button>
+        <img src={avatar} />
       </div>
     );
   }
