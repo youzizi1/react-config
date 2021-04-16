@@ -1,12 +1,13 @@
 const path = require("path");
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { merge } = require("webpack-merge");
 
-module.exports = {
+const baseConfig = require("./webpack.base.config");
+
+const prodConfig = {
   mode: "production",
-  entry: path.join(__dirname, "src/index.js"),
   output: {
     path: path.join(__dirname, "dist/"),
     filename: "[name].[chunkhash].js",
@@ -14,40 +15,15 @@ module.exports = {
     publicPath: "https://cdn.example.com/assets/",
   },
   devtool: "cheap-module-source-map",
-  resolve: {
-    alias: {
-      "@": path.join(__dirname, "src"),
-    },
-  },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      {
-        test: /\.js$/,
-        include: path.join(__dirname, "src"),
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /\.jpg|png|jpeg|gif$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 8192,
-          },
-        },
-      },
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: path.join(__dirname, "./public/index.html"),
-    }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify("production"),
@@ -76,3 +52,5 @@ module.exports = {
     },
   },
 };
+
+module.exports = merge(baseConfig, prodConfig);
