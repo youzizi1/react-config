@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { double } from "@/utils";
+import { double, isInclude } from "@/utils";
 import "@/css/app.css";
 import avatar from "@/images/avatar.jpg";
 
+console.log(isInclude([1,2], 1))
 class App extends Component {
   constructor(props) {
     super(props);
