@@ -1,2 +1,2 @@
-const a = "async module";
-export default a;
+const message = "async module";
+export default message;

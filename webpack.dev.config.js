@@ -6,7 +6,7 @@ module.exports = {
   entry: path.join(__dirname, "src/index.js"),
   output: {
     path: path.join(__dirname, "dist/"),
-    filename: "[name].[hash].js",
+    filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
   },
   devtool: "inline-source-map",
