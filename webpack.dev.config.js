@@ -23,7 +23,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', "css-loader"],
       },
       {
         test: /\.js$/,
@@ -57,15 +57,15 @@ module.exports = {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
           reuseExistingChunk: true,
-          name: 'vendor'
+          name: "vendor",
         },
         default: {
           minChunks: 2,
           priority: -20,
           reuseExistingChunk: true,
-          name: 'common'
+          name: "common",
         },
-      }
+      },
     },
   },
 };
