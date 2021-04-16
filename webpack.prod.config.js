@@ -10,6 +10,7 @@ module.exports = {
     path: path.join(__dirname, "dist/"),
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
+    publicPath: "https://cdn.example.com/assets/",
   },
   devtool: "cheap-module-source-map",
   resolve: {
