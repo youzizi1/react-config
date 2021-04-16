@@ -9,7 +9,7 @@ if (module.hot) {
 
 ReactDom.render(
   <div>
-    <p>hello world ugu</p>
+    <p>hello world</p>
     <App />
   </div>,
   document.getElementById('app')

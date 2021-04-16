@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "production",
@@ -46,6 +47,9 @@ module.exports = {
       template: path.join(__dirname, "./public/index.html"),
     }),
     new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      NODE_ENV: JSON.stringify("production"),
+    }),
   ],
   optimization: {
     splitChunks: {
